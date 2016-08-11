@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="spring-mybatis-maven" />
+        <module name="mybatis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring-mybatis-maven" target="1.5" />
+      <module name="mybatis" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
