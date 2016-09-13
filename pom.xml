@@ -72,14 +72,12 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- http://mvnrepository.com/artifact/org.apache.velocity/velocity -->
+        <!-- velocity -->
         <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity</artifactId>
             <version>1.7</version>
         </dependency>
-
-        <!-- http://mvnrepository.com/artifact/org.apache.velocity/velocity-tools -->
         <dependency>
             <groupId>org.apache.velocity</groupId>
             <artifactId>velocity-tools</artifactId>
