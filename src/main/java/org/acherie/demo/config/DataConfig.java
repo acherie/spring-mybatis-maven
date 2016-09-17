@@ -14,6 +14,7 @@ import org.springframework.core.env.Environment;
 /**
  * Created by wangjie on 9/14/2016.
  */
+// @MapperScan 设置 java mapper 扫描的包
 @Configuration
 @MapperScan("org.acherie.demo.dao")
 public class DataConfig {
@@ -60,6 +61,7 @@ public class DataConfig {
     public SqlSessionFactory sqlSessionFactory(ApplicationContext applicationContext) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
+        // 设置 mapper xml
         sessionFactory.setMapperLocations(applicationContext.getResources("classpath:mapper/**/*.xml"));
         return sessionFactory.getObject();
     }
