@@ -8,15 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/**
- * Created by wangjie on 9/14/2016.
- */
 // @MapperScan 设置 java mapper 扫描的包
 @Configuration
-@MapperScan("org.acherie.demo.dao")
+@EnableTransactionManagement
+@MapperScan(basePackages = "org.acherie.demo.dao")
 public class DataConfig {
 
     @Autowired
@@ -64,5 +64,10 @@ public class DataConfig {
         // 设置 mapper xml
         sessionFactory.setMapperLocations(applicationContext.getResources("classpath:mapper/**/*.xml"));
         return sessionFactory.getObject();
+    }
+
+    @Bean
+    public PlatformTransactionManager txManager() {
+        return new DataSourceTransactionManager(dataSource());
     }
 }
