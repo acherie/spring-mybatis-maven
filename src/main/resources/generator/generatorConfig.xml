@@ -42,6 +42,8 @@
         <table tableName="country" domainObjectName="Country">
             <!--<property name="ignoreQualifiersAtRuntime" value="true"/>-->
         </table>
+        <table tableName="city" domainObjectName="City"/>
+        <table tableName="countrylanguage" domainObjectName="CountryLanguage"/>
 
     </context>
 </generatorConfiguration>
