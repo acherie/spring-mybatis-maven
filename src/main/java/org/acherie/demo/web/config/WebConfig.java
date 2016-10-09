@@ -27,6 +27,8 @@ import java.util.Map;
 @ComponentScan("org.acherie.demo.web")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
+    // 配置 VelocityViewResolver。因为 velocity 从2007年就未更新，所以 spring 从 4.3
+    // 版本开始不赞成使用 velocity，推荐使用 FreeMarker
     @Bean
     public ViewResolver viewResolver() {
         VelocityViewResolver resolver = new VelocityViewResolver();
@@ -37,6 +39,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
+    // Velocity 的配置
     @Bean
     public VelocityConfigurer velocityConfigurer(ApplicationContext context) {
         VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
@@ -51,16 +54,20 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return velocityConfigurer;
     }
 
+    // 开启默认 Servlet 的支持，可用于处理静态文件
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
 
+    // 配置 HttpMessageConverter，可配置多个自定义的 HttpMessageConverter
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(jacksonConverter());
     }
 
+    // 配置自定义的 MappingJackson2HttpMessageConverter，用于处理 application/json 类型的 mediaType,
+    // 并添加了 application/xml 转 json 的支持
     @Bean
     public MappingJackson2HttpMessageConverter jacksonConverter() {
         List<MediaType> mediaTypes = new ArrayList<>();
