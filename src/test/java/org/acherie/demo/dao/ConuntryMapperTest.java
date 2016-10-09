@@ -1,8 +1,9 @@
 package org.acherie.demo.dao;
 
 import org.acherie.demo.config.RootConfig;
-import org.acherie.demo.model.Country;
-import org.acherie.demo.model.CountryExample;
+import org.acherie.demo.dao.generator.CountryMapper;
+import org.acherie.demo.model.generator.Country;
+import org.acherie.demo.model.generator.CountryExample;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

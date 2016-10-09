@@ -1,5 +1,6 @@
 package org.acherie.demo.config;
 
+import org.acherie.demo.web.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -14,7 +15,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[]{WebInitializer.class};
+        return new Class<?>[]{WebConfig.class};
     }
 
     @Override
